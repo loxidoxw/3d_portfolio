@@ -11,13 +11,12 @@ class WorkController extends Controller
 {
     public function index()
     {
-        $works = Work::all();
+        $works = Work::paginate(12);
         return view('work.index', compact('works'));
     }
 
-    public function show($id)
+    public function show(Work $work)
     {
-        $work = Work::findOrFail($id);
         return view('work.show', compact('work'));
     }
 
@@ -40,5 +39,26 @@ class WorkController extends Controller
         Work::create($data);
 
         return redirect()->route('work.index');
+    }
+
+    public function edit(Work $work)
+    {
+        return view('work.edit', compact('work'));
+    }
+
+    public function update(WorkRequest $request, Work $work)
+    {
+          $data = $request->validated();
+
+        if ($request->hasFile('thumbnail')) {
+            $data['thumbnail'] = $request->file('thumbnail')->store('models/thumbnail', 'public');
+        }
+
+        if ($request->hasFile('mview_path')) {
+            $data['mview_path'] = $request->file('mview_path')->store('models/model_files', 'public');
+        }
+
+        $work->update($data);
+        return redirect()->route('work.show', $work);
     }
 }

@@ -16,7 +16,7 @@ class WorkRequest extends FormRequest
 
     /**
      * Get the validation rules that apply to the request.
-     *
+     *   |mimetypes:application/octet-stream'
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
@@ -26,7 +26,7 @@ class WorkRequest extends FormRequest
             'description' => 'required|string',
             'thumbnail' => 'required|file|image|mimes:jpeg,png,jpg,svg',
             'sketchfab_url' => 'nullable|url',
-            'mview_path' => 'nullable|file|mimetypes:application/octet-stream',
+            'mview_path' => 'nullable|file'
         ];
     }
 }
