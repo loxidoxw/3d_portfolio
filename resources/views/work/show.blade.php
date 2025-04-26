@@ -12,9 +12,9 @@
         </div>
             </div>
           <div class="col">
-        <div class="work label">
+        <div class="work label ">
             {{$work->title}}
-            <a href="{{route('work.edit', $work->id)}}">edit</a>
+            <a class="text-decoration-none" href="{{route('work.edit', $work->id)}}">edit</a>
         </div>
           </div>
         </div>
