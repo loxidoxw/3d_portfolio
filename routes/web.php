@@ -15,7 +15,7 @@ Route::get('/', function () {
 
 
 
-    Route::get('/work', IndexController::class)->name('work.index');
+    Route::get('/works', IndexController::class)->name('work.index');
     Route::get('/work/create', CreateController::class)->name('work.create');
     Route::get('/work/{work}', ShowController::class)->name('work.show');
     Route::get('/work/{work}/edit', EditController::class)->name('work.edit');

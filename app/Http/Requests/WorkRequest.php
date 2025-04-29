@@ -24,9 +24,17 @@ class WorkRequest extends FormRequest
         return [
            'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'thumbnail' => 'required|file|image|mimes:jpeg,png,jpg,svg',
+            'thumbnail' => 'required|string',
             'sketchfab_url' => 'nullable|url',
-            'mview_path' => 'nullable|file'
+            'mview_path' => 'nullable|string'
         ];
     }
+
+//return [
+//'title' => 'required|string|max:255',
+//'description' => 'required|string',
+//'thumbnail' => 'required|file|image|mimes:jpeg,png,jpg,svg',
+//'sketchfab_url' => 'nullable|url',
+//'mview_path' => 'nullable|file'
+//];
 }
